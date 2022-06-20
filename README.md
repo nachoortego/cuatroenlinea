@@ -55,3 +55,27 @@ Luego, en caso de no contar con **Composer** en el sistema, ejecutamos:
 ddev composer install
 ```
 Con esto terminado, ya estamos listos para probar la aplicación.
+
+## Ejecutar Cuatro en línea
+Para iniciar el servidor local, ejecutamos:
+```
+ddev start
+```
+En caso de obtener algún error relacionado al uso de los puertos, por ejemplo *Unable to listen on required ports, port 433 is already in use*, hay dos posibles soluciones.
+- 'Matar' al proceso utilizando el puerto correspondiente.
+- Editar el archivo ```ddev/config.yaml``` y cambiar donde dice 443 y 80 por otros numeros, como 4430 y 8000.
+
+Por último, con **DDEV** iniciado correctamente, veremos algo como esto (donde *projectname* se refiere al nombre indicado al configurar **DDEV**):
+```
+Successfully started projectname
+Project can be reached at http://projectname.ddev.site:800 http://127.0.0.1:50536
+```
+Con ello, nos dirijimos a dicho link, y si vemos una pantalla como la siguiente significa que lo hemos logrado.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505028014800956/unknown.png" width="400"></a></p>
+Una vez situados en esta página, para jugar agregamos ```/jugar/1``` a la dirección anteriormente mencionada para poder ver el juego.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505223746183228/unknown.png" width="400"></a></p>
+Con esto, la guía está completa. Antes de cerrar la aplicación y para que todo termine correctamente, no olvide de ejecutar:
+```
+ddev stop
+```
+Muchas gracias por su atención.
