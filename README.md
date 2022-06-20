@@ -58,7 +58,7 @@ Ahora, en caso de no contar con **Composer** en el sistema, ejecutamos:
 ```
 ddev composer install
 ```
-Luego, es necesario crear un archivo de ambiente para el proyecto. Esto lo realizaremos el comando:
+Luego, es necesario crear un archivo de ambiente para el proyecto. Esto lo realizaremos con el comando:
 ```
 cp .env example . env
 ```
