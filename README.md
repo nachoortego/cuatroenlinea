@@ -94,8 +94,6 @@ Una vez situados en esta página, para jugar agregamos ```/jugar/1``` a la direc
 
 Con esto, la guía está completa. Antes de cerrar la aplicación y para que todo termine correctamente, no olvide de ejecutar:
 ```
-ddev stop
+ddev poweroff
 ```
 Para volver a probar la aplicación, la sección de Configuración ya no será necesaria, por lo que con ```ddev start``` sería suficiente.
-
-Muchas gracias por su atención.
