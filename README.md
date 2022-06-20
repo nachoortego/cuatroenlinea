@@ -4,7 +4,7 @@
 
 
 ## Resumen
-Este proyecto, basado en PHP y utilizando el framework de laravel, se trata de una página web en la que se puede jugar al cuatro en línea. En caso de no saber de qué se trata, puedes leer las <a href="https://www.casualarena.com/es/conecta-4/reglas#:~:text=Se%20juega%20siempre%20entre%202,horizontal%2C%20vertical%20u%20oblicuo%20gana."  target="_blank">reglas del juego.</a> Basado en PHP y utilizando el framework de laravel.
+Este proyecto, basado en PHP y utilizando el framework de **Laravel**, se trata de una página web en la que se puede jugar al cuatro en línea. En caso de no saber de qué se trata, puedes leer las <a href="https://www.casualarena.com/es/conecta-4/reglas#:~:text=Se%20juega%20siempre%20entre%202,horizontal%2C%20vertical%20u%20oblicuo%20gana."  target="_blank">reglas del juego.</a> Basado en PHP y utilizando el framework de laravel.
 
 
 ## Requisitos
