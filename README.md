@@ -2,8 +2,10 @@
 
 # Cuatro en linea
 
+
 ## Resumen
 Este proyecto, basado en PHP y utilizando el framework de laravel, se trata de una página web en la que se puede jugar al cuatro en línea. En caso de no saber de qué se trata, puedes leer las <a href="https://www.casualarena.com/es/conecta-4/reglas#:~:text=Se%20juega%20siempre%20entre%202,horizontal%2C%20vertical%20u%20oblicuo%20gana."  target="_blank">reglas del juego.</a> Basado en PHP y utilizando el framework de laravel.
+
 
 ## Requisitos
 - DDEV
@@ -11,6 +13,7 @@ Este proyecto, basado en PHP y utilizando el framework de laravel, se trata de u
 - Composer
 
 A continuación se detalla la instalación de los primeros 2 requisitos. En cuanto a **Composer**, en caso de no contar con el mismo, su instalación será explicada más adelante.
+
 ### Instalación de DDEV
 #### Chocolatey
 La forma más rapida de instalar DDEV es primero instalando **chocolatey**.
@@ -36,6 +39,7 @@ choco install ddev
 ### Instalación de Docker Desktop
 Para instalar **Docker** en nuestro sistema, nos dirigimos al siguiente [enlace](https://www.docker.com/get-started/). Luego, seleccionamos nuestro sistema operativo y seguimos los pasos indicados por el programa. 
 
+
 ## Setup y configuración de DDEV
 
 Lo primero que necesitamos para correr la aplicación es clonar este repositorio, por lo que contando con [git](https://git-scm.com/downloads) instalado, situamos nuestra terminal en el directorio deseado y ejecutamos la siguiente línea:
@@ -56,6 +60,7 @@ ddev composer install
 ```
 Con esto terminado, ya estamos listos para probar la aplicación.
 
+
 ## Ejecutar Cuatro en línea
 Para iniciar el servidor local, ejecutamos:
 ```
@@ -71,9 +76,13 @@ Successfully started projectname
 Project can be reached at http://projectname.ddev.site:800 http://127.0.0.1:50536
 ```
 Con ello, nos dirijimos a dicho link, y si vemos una pantalla como la siguiente significa que lo hemos logrado.
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505028014800956/unknown.png" width="400"></a></p>
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505028014800956/unknown.png" width="700"></a></p>
+
 Una vez situados en esta página, para jugar agregamos ```/jugar/1``` a la dirección anteriormente mencionada para poder ver el juego.
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505223746183228/unknown.png" width="400"></a></p>
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/740983198636441710/988505223746183228/unknown.png" width="700"></a></p>
+
 Con esto, la guía está completa. Antes de cerrar la aplicación y para que todo termine correctamente, no olvide de ejecutar:
 ```
 ddev stop
