@@ -55,11 +55,20 @@ Con todo listo para empezar con la configuración del entorno, ejecutamos ```dde
 
 "Proyect Type: " colocar 'laravel'. Tecla Enter para terminar.
 ```
-Luego, en caso de no contar con **Composer** en el sistema, ejecutamos:
+Ahora, en caso de no contar con **Composer** en el sistema, ejecutamos:
 ```
 ddev composer install
 ```
-Con esto terminado, ya estamos listos para probar la aplicación.
+Luego, es necesario crear un archivo de ambiente para el proyecto. Esto lo realizaremos el comando:
+```
+cp .env example . env
+```
+Con esto hecho, crearemos una clave de aplicación para nuestro proyecto:
+```
+php artisan key:generate
+```
+
+Al completar estos pasos, ya estamos listos para probar la aplicación.
 
 
 ## Ejecutar Cuatro en línea
@@ -88,4 +97,6 @@ Con esto, la guía está completa. Antes de cerrar la aplicación y para que tod
 ```
 ddev stop
 ```
+Para volver a probar la aplicación, la sección de Configuración ya no será necesaria, por lo que con ```ddev start``` sería suficiente.
+
 Muchas gracias por su atención.
