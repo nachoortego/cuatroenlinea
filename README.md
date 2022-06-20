@@ -14,7 +14,7 @@ A continuación se detalla la instalación de los primeros 2 requisitos. En cuan
 ### Instalación de DDEV
 #### Chocolatey
 La forma más rapida de instalar DDEV es primero instalando **chocolatey**.
-Para hacerlo, en la terminal con permisos administrativos ejecutamos
+Para hacerlo, en la terminal con permisos administrativos ejecutamos:
 ```
 Get-ExecutionPolicy
 ```
@@ -22,7 +22,7 @@ En caso de que la respuesta haya sido ```Restricted```, ejecutar:
 ```
 Set-ExecutionPolicy AllSigned``` o ```Set-ExecutionPolicy Bypass -Scope Process
 ```
-Luego para finalmente instalar **chocolatey**, ejecutamos la siguiente línea de comando
+Luego para finalmente instalar **chocolatey**, ejecutamos la siguiente línea de comando:
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
@@ -38,12 +38,11 @@ Para instalar **Docker** en nuestro sistema, nos dirigimos al siguiente [enlace]
 
 ## Setup y configuración de DDEV
 
-Lo primero que necesitamos para correr la aplicación es clonar este repositorio, por lo que contando con [git](https://git-scm.com/downloads) instalado, situamos nuestra terminal en el directorio deseado y ejecutamos la siguiente línea
+Lo primero que necesitamos para correr la aplicación es clonar este repositorio, por lo que contando con [git](https://git-scm.com/downloads) instalado, situamos nuestra terminal en el directorio deseado y ejecutamos la siguiente línea:
 ```
 git clone https://github.com/nachoortego/cuatroenlinea.git
 ```
-Para ubicarnos en el directorio de la aplicación, ejecutamos ```cd cuatroenlinea```, y para empezar con la configuración del entorno ejecutamos ```ddev config```.
-Se nos presentarán tres apartados en los que tenemos que colocar la siguiente información
+Para ubicarnos en el directorio de la aplicación, ejecutamos ```cd cuatroenlinea```, y para empezar con la configuración del entorno ejecutamos ```ddev config```. Se nos presentarán tres apartados en los que tenemos que colocar la siguiente información:
 ```
 "Proyect Name: " nombre deseado para el proyecto. Tecla Enter para continuar.
 
@@ -51,7 +50,7 @@ Se nos presentarán tres apartados en los que tenemos que colocar la siguiente i
 
 "Proyect Type: " colocar 'laravel'. Tecla Enter para terminar.
 ```
-Luego, en caso de no contar con **Composer**, ejecutamos 
+Luego, en caso de no contar con **Composer** en el sistema, ejecutamos:
 ```
 ddev composer install
 ```
