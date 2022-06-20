@@ -45,7 +45,9 @@ Lo primero que necesitamos para correr la aplicación es clonar este repositorio
 ```
 git clone https://github.com/nachoortego/cuatroenlinea.git
 ```
-Para ubicarnos en el directorio de la aplicación, ejecutamos ```cd cuatroenlinea```, y para empezar con la configuración del entorno ejecutamos ```ddev config```. Se nos presentarán tres apartados en los que tenemos que colocar la siguiente información:
+Para ubicarnos en el directorio de la aplicación, ejecutamos ```cd cuatroenlinea```, y procedemos a iniciar **Docker desktop**.
+
+Con todo listo para empezar con la configuración del entorno, ejecutamos ```ddev config```. Se nos presentarán tres apartados en los que se recomienda colocar la siguiente información:
 ```
 "Proyect Name: " nombre deseado para el proyecto. Tecla Enter para continuar.
 
