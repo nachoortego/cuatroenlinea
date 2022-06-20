@@ -60,7 +60,7 @@ ddev composer install
 ```
 Luego, es necesario crear un archivo de ambiente para el proyecto. Esto lo realizaremos con el comando:
 ```
-cp .env example . env
+cp .env.example .env
 ```
 Con esto hecho, crearemos una clave de aplicación para nuestro proyecto:
 ```
