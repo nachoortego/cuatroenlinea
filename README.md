@@ -13,15 +13,23 @@ A continuación se detalla la instalación de los primeros 2 requisitos. En cuan
 #### Chocolatey
 La forma más rapida de instalar DDEV es primero instalando **chocolatey**.
 Para hacerlo, en la terminal con permisos administrativos ejecutamos
-```Get-ExecutionPolicy```
+```
+Get-ExecutionPolicy
+```
 En caso de que la respuesta haya sido ```Restricted```, ejecutar:
-```Set-ExecutionPolicy AllSigned``` o ```Set-ExecutionPolicy Bypass -Scope Process```
+```
+Set-ExecutionPolicy AllSigned``` o ```Set-ExecutionPolicy Bypass -Scope Process
+```
 Luego para finalmente instalar **chocolatey**, ejecutamos la siguiente línea de comando
-```Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))```
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
 
 #### DDEV
 Con **chocolatey** ya instalado, todo lo que necesitamos para instalar **DDEV** es ejecutar la siguiente línea de comando en la terminal:
-```choco install ddev```
+```
+choco install ddev
+```
 
 ### Instalación de Docker Desktop
 Para instalar **Docker** en nuestro sistema, nos dirigimos al siguiente [enlace](https://www.docker.com/get-started/). Luego, seleccionamos nuestro sistema operativo y seguimos los pasos indicados por el programa. 
