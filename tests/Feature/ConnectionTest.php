@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class StatusTest extends TestCase
 {
-    public function statusNumber() 
+    public function test_status_number() 
     {
         $number = $this->get('/jugar/7');
 
