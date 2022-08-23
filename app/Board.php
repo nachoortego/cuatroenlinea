@@ -2,15 +2,16 @@
 
 namespace App;
 
-use Piece;
+use App\Piece;
 
 interface boardInterface {
     public function getX () : int; // Returns X value
     public function getY () : int; // Returns Y value
-    public function getPiece(); // Returns piece colour
-    public function putPiece(); // Puts new piece in board
+    public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
+    public function getPiece(int $x, int $y) : Piece; // Returns piece colour
+    public function putPiece(int $x, int $y, Piece $piece); // Puts new piece in board
+    public function removePiece(int $x, int $y); // Removes a piece
     public function cleanBoard(); // Cleans the board
-    public function undo(); // Undo last movement
 }
 
 class Board implements boardInterface {
@@ -38,21 +39,25 @@ class Board implements boardInterface {
     public function cleanBoard(){
         for($x = 0; $x < $this->getX(); $x++){
             for($y = 0; $y < $this->getY(); $y++){
-                $this->tablero[$x][$y] = "0";
+                $this->board[$x][$y] = "0";
             }
         }
     }
-
-    public function getPiece(){
-
+    
+    public function isPiece(int $x, int $y) : bool {
+        return $this->board[$x][$y] != "0";
     }
 
-    public function putPiece(){
-
+    public function getPiece(int $x, int $y) : Piece {
+        return $this->board[$x][$y];
     }
 
-    public function undo(){
+    public function putPiece(int $x, int $y, Piece $piece){ // Finish
+        $this->board[$x][$y] = $piece;
+    }
 
+    public function removePiece(int $x, int $y){ // Finish
+        $this->board[$x][$y] = "0";
     }
 
     public function showCell(int $x,int $y){
