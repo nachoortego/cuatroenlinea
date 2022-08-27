@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Piece;
+//use App\Piece;
 
 interface boardInterface {
     public function getX () : int; // Returns X value
@@ -10,7 +10,7 @@ interface boardInterface {
     public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
     public function getPiece(int $x, int $y) : Piece; // Returns piece object
     public function putPiece(int $x, Piece $piece); // Puts new piece in board
-    public function removePiece(int $x, int $y); // Removes a piece
+    public function removePiece(int $x); // Removes a piece
     public function cleanBoard(); // Cleans the board
 }
 
@@ -62,9 +62,14 @@ class Board implements boardInterface {
         }
     }
 
-    public function removePiece(int $x, int $y){ // Finish
-        $this->board[$x][$y] = "⬜";
-    }
+    public function removePiece(int $x){ // Finish
+        $x--;
+        for($y = 0; $y < $this->getY(); $y++){
+            if($this->isPiece($x, $y)){
+                $this->board[$x][$y] = "⬜";
+                break;
+            }
+        }    }
 
     public function showCell(int $x,int $y){
 
@@ -80,6 +85,7 @@ class Board implements boardInterface {
     }
 
     public function showBoard(){
+        print("\n\n");
         for($y = 0; $y < $this->getY(); $y++){
             
             for($x = 0;$x < $this->getX(); $x++){
@@ -92,6 +98,25 @@ class Board implements boardInterface {
         print("\n\n");
     }
 
+}
+
+interface pieceInterface {
+    public function getColor() : string;
+}
+
+class Piece implements pieceInterface {
+    protected $color;    
+
+    public function __construct($colorInput) {
+        if($colorInput != "🟥" && $colorInput != "🟦" )
+            throw new \Exception ("Piece must be red ('🟥') or blue ('🟦')");
+
+        $this->color = $colorInput;
+    }
+
+    public function getColor() : string {
+        return $this->color;
+    }
 }
 
 $board = new Board;
@@ -110,6 +135,10 @@ $board->putPiece(3,$red);
 $board->putPiece(3,$red);
 $board->putPiece(3,$red);
 $board->showBoard();
+$board->removePiece(7);
+$board->removePiece(7);
+$board->showBoard();
+
 
 
 ?>
