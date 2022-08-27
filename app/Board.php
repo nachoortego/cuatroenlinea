@@ -2,14 +2,14 @@
 
 namespace App;
 
-//use App\Piece;
+use App\Piece;
 
 interface boardInterface {
     public function getX () : int; // Returns X value
     public function getY () : int; // Returns Y value
     public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
     public function getPiece(int $x, int $y) : Piece; // Returns piece object
-    public function putPiece(int $x, int $y, Piece $piece); // Puts new piece in board
+    public function putPiece(int $x, Piece $piece); // Puts new piece in board
     public function removePiece(int $x, int $y); // Removes a piece
     public function cleanBoard(); // Cleans the board
 }
@@ -52,8 +52,14 @@ class Board implements boardInterface {
         return $this->board[$x][$y];
     }
 
-    public function putPiece(int $x, int $y, Piece $piece){ // Finish
-        $this->board[$x][$y] = $piece;
+    public function putPiece(int $x, Piece $piece){ // Finish
+        $x--;
+        for($y = $this->getY()-1; $y >= 0; $y--){
+            if(!($this->isPiece($x, $y))){
+                $this->board[$x][$y] = $piece;
+                break;
+            }
+        }
     }
 
     public function removePiece(int $x, int $y){ // Finish
@@ -62,13 +68,12 @@ class Board implements boardInterface {
 
     public function showCell(int $x,int $y){
 
-        if($x > $this->getX() || $y > $this->getY()){
+        if($x > $this->getX() || $y > $this->getY())
             throw new \Exception("Value out of bounds");
-        }
 
-        if($this->board[$x][$y] == "⬜"){
+        if($this->board[$x][$y] == "⬜")
             return $this->board[$x][$y];
-        }
+
         else{
             return $this->board[$x][$y]->getColor();
         }
@@ -90,10 +95,21 @@ class Board implements boardInterface {
 }
 
 $board = new Board;
-$piece1 = new Piece("🟦");
-$board->putPiece(3,3,$piece1);
+$blue = new Piece("🟦");
+$red = new Piece("🟥");
+$board->putPiece(1,$red);
+$board->putPiece(1,$blue);
+$board->putPiece(4,$blue);
+$board->putPiece(4,$blue);
+$board->putPiece(2,$blue);
+$board->putPiece(6,$red);
+$board->putPiece(7,$blue);
+$board->putPiece(7,$red);
+$board->putPiece(7,$blue);
+$board->putPiece(3,$red);
+$board->putPiece(3,$red);
+$board->putPiece(3,$red);
 $board->showBoard();
-print($board->isPiece(3,3));
 
 
 ?>
