@@ -10,8 +10,8 @@ class Piece implements pieceInterface {
     protected $color;    
 
     public function __construct($colorInput) {
-        if($colorInput != "red" && $colorInput != "blue" )
-            throw new \Exception ("Piece must be red or blue");
+        if($colorInput != "🟥" && $colorInput != "🟦" )
+            throw new \Exception ("Piece must be red ('🟥') or blue ('🟦')");
 
         $this->color = $colorInput;
     }

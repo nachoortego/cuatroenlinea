@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\Piece;
+//use App\Piece;
 
 interface boardInterface {
     public function getX () : int; // Returns X value
     public function getY () : int; // Returns Y value
     public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
-    public function getPiece(int $x, int $y) : Piece; // Returns piece colour
+    public function getPiece(int $x, int $y) : Piece; // Returns piece object
     public function putPiece(int $x, int $y, Piece $piece); // Puts new piece in board
     public function removePiece(int $x, int $y); // Removes a piece
     public function cleanBoard(); // Cleans the board
@@ -39,13 +39,13 @@ class Board implements boardInterface {
     public function cleanBoard(){
         for($x = 0; $x < $this->getX(); $x++){
             for($y = 0; $y < $this->getY(); $y++){
-                $this->board[$x][$y] = "0";
+                $this->board[$x][$y] = "⬜";
             }
         }
     }
     
     public function isPiece(int $x, int $y) : bool {
-        return $this->board[$x][$y] != "0";
+        return $this->board[$x][$y] != "⬜";
     }
 
     public function getPiece(int $x, int $y) : Piece {
@@ -57,7 +57,7 @@ class Board implements boardInterface {
     }
 
     public function removePiece(int $x, int $y){ // Finish
-        $this->board[$x][$y] = "0";
+        $this->board[$x][$y] = "⬜";
     }
 
     public function showCell(int $x,int $y){
@@ -66,7 +66,7 @@ class Board implements boardInterface {
             throw new \Exception("Value out of bounds");
         }
 
-        if($this->board[$x][$y] == "0"){
+        if($this->board[$x][$y] == "⬜"){
             return $this->board[$x][$y];
         }
         else{
@@ -82,11 +82,18 @@ class Board implements boardInterface {
                 print($this->showCell($x,$y));
 
             }
-            
             print("\n");
         }
         print("\n\n");
     }
 
 }
+
+$board = new Board;
+$piece1 = new Piece("🟦");
+$board->putPiece(3,3,$piece1);
+$board->showBoard();
+print($board->isPiece(3,3));
+
+
 ?>
