@@ -2,16 +2,16 @@
 
 namespace App;
 
-//use App\Piece;
+use App\Piece;
 
 interface boardInterface {
     public function getX () : int; // Returns X value
     public function getY () : int; // Returns Y value
+    public function cleanBoard(); // Cleans the board
     public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
     public function getPiece(int $x, int $y) : Piece; // Returns piece object
     public function putPiece(int $x, Piece $piece); // Puts new piece in board
     public function removePiece(int $x); // Removes a piece
-    public function cleanBoard(); // Cleans the board
 }
 
 class Board implements boardInterface {
@@ -98,25 +98,6 @@ class Board implements boardInterface {
         print("\n\n");
     }
 
-}
-
-interface pieceInterface {
-    public function getColor() : string;
-}
-
-class Piece implements pieceInterface {
-    protected $color;    
-
-    public function __construct($colorInput) {
-        if($colorInput != "🟥" && $colorInput != "🟦" )
-            throw new \Exception ("Piece must be red ('🟥') or blue ('🟦')");
-
-        $this->color = $colorInput;
-    }
-
-    public function getColor() : string {
-        return $this->color;
-    }
 }
 
 $board = new Board;
