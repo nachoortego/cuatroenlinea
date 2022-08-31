@@ -78,10 +78,14 @@ class Game implements gameInterface {
                             return TRUE;
                     }
                 }
+                else {
+                    $red = 0;
+                    $blue = 0;
+                }
             }
         }
 
-        return FALSE;    
+        return FALSE;
     }
 
     public function vertical() : bool {
@@ -103,6 +107,10 @@ class Game implements gameInterface {
                         if($blue == 4)
                             return TRUE;
                     }
+                }
+                else {
+                    $red = 0;
+                    $blue = 0;
                 }
             }
         }
