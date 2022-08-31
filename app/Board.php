@@ -22,12 +22,16 @@ class Board implements boardInterface {
     public function __construct() {
         $this->cleanBoard();
     }
+
+    public function getBoard() {
+        return $this->board;
+    }
     
-    public function getX () : int{
+    public function getX() : int{
         return $this->lenX;
     }
 
-    public function getY () : int{
+    public function getY() : int{
         return $this->lenY;
     }
     
@@ -87,26 +91,6 @@ class Board implements boardInterface {
     }
 
 }
-
-$board = new Board;
-$blue = new Piece("🟦");
-$red = new Piece("🟥");
-$board->putPiece(1,$red);
-$board->putPiece(1,$blue);
-$board->putPiece(4,$blue);
-$board->putPiece(4,$blue);
-$board->putPiece(2,$blue);
-$board->putPiece(6,$red);
-$board->putPiece(7,$blue);
-$board->putPiece(7,$red);
-$board->putPiece(7,$blue);
-$board->putPiece(3,$red);
-$board->putPiece(3,$red);
-$board->putPiece(3,$red);
-$board->showBoard();
-$board->removePiece(7);
-$board->removePiece(7);
-$board->showBoard();
 
 
 

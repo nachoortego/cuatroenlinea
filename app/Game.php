@@ -16,7 +16,7 @@ class Game implements gameInterface {
     protected $board;
     
     public function __construct (Board $newBoard) {
-        $this->board = $newBoard->board;
+        $this->board = $newBoard->getBoard();
     }
 
     public function play() {
