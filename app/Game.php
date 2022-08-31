@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Board;
+include 'Board.php';
 
 interface gameInterface {
     public function horizontal(Board $board) : bool; // Reads if there is a horizonal 4-in-row in the board

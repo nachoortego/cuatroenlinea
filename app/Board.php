@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Piece;
+include 'Piece.php';
 
 interface boardInterface {
     public function getX () : int; // Returns X value
@@ -16,15 +16,10 @@ interface boardInterface {
 
 class Board implements boardInterface {
     protected $board;
-    protected int $lenX;
-    protected int $lenY;
-
-    public function __construct(int $inputLenX = 7, int $inputLenY = 7) {
-        if($inputLenX < 4 || $inputLenY < 4) 
-            throw new \Exception ("Board size must be 4 or more");
-        
-        $this->lenX = $inputLenX;
-        $this->lenY = $inputLenY;
+    protected $lenX = 7;
+    protected $lenY = 6;
+    
+    public function __construct() {
         $this->cleanBoard();
     }
     
@@ -52,7 +47,7 @@ class Board implements boardInterface {
         return $this->board[$x][$y];
     }
 
-    public function putPiece(int $x, Piece $piece){ // Finish
+    public function putPiece(int $x, Piece $piece){
         $x--;
         for($y = $this->getY()-1; $y >= 0; $y--){
             if(!($this->isPiece($x, $y))){
@@ -62,7 +57,7 @@ class Board implements boardInterface {
         }
     }
 
-    public function removePiece(int $x){ // Finish
+    public function removePiece(int $x){
         $x--;
         for($y = 0; $y < $this->getY(); $y++){
             if($this->isPiece($x, $y)){
@@ -72,10 +67,6 @@ class Board implements boardInterface {
         }    }
 
     public function showCell(int $x,int $y){
-
-        if($x > $this->getX() || $y > $this->getY())
-            throw new \Exception("Value out of bounds");
-
         if($this->board[$x][$y] == "⬜")
             return $this->board[$x][$y];
 
@@ -87,11 +78,8 @@ class Board implements boardInterface {
     public function showBoard(){
         print("\n\n");
         for($y = 0; $y < $this->getY(); $y++){
-            
             for($x = 0;$x < $this->getX(); $x++){
-
                 print($this->showCell($x,$y));
-
             }
             print("\n");
         }
