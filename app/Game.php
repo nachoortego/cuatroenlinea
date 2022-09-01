@@ -81,11 +81,13 @@ class Game implements gameInterface {
 
         for($y = ($this->board)->getY()-1; $y >= 0; $y--){
             for($x = 0; $x < ($this->board)->getX(); $x++){
-                if(($this->board)->isPiece($x,$y)) 
-                    return $this->colorCount($x, $y, $red, $blue);
-                else {
-                    $red = 0;
-                    $blue = 0;
+                if(($this->board)->isPiece($x,$y)) {
+                    if($this->colorCount($x, $y, $red, $blue))
+                        return TRUE;
+                    else {
+                        $red = 0;
+                        $blue = 0;
+                    }
                 }
             }
         }
@@ -99,11 +101,13 @@ class Game implements gameInterface {
 
         for($x = 0; $x < ($this->board)->getX(); $x++){
             for($y = ($this->board)->getY()-1; $y >= 0; $y--){
-                if(($this->board)->isPiece($x,$y))
-                    return $this->colorCount($x, $y, $red, $blue);
-                else {
-                    $red = 0;
-                    $blue = 0;
+                if(($this->board)->isPiece($x,$y)) {
+                    if($this->colorCount($x, $y, $red, $blue))
+                        return TRUE;
+                    else {
+                        $red = 0;
+                        $blue = 0;
+                    }
                 }
             }
         }
@@ -120,11 +124,13 @@ class Game implements gameInterface {
         // Right diagonals
         for($i = 1; $i > 6; $i++) {
 
-            if(($this->board)->isPiece($x,$y))
-                return $this->colorCount($x, $y, $red, $blue);
-            else {
-                $red = 0;
-                $blue = 0;
+            if(($this->board)->isPiece($x,$y)) {
+                if($this->colorCount($x, $y, $red, $blue)) 
+                    return TRUE;
+                else {
+                    $red = 0;
+                    $blue = 0;
+                }
             }
         }
 
