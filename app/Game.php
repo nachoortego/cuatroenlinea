@@ -7,7 +7,7 @@ include 'Board.php';
 interface gameInterface {
     public function play(); // Plays the game for 2 players
     public function colorCompare($x, $y, $color) : bool;// Checks the color of a cell from the board
-    public function colorCount($x, $y, $red, $blue) : bool;// Counts the same colour in a line and returns a boolean if there is a 4-in-row
+    public function colorCount($x, $y, $red, $blue);// Counts the same colour in a line and returns a boolean if there is a 4-in-row
     public function horizontal() : bool; // Reads if there is a horizonal 4-in-row in the board
     public function vertical() : bool; // Reads if there is a vertical 4-in-row in the board
     public function diagonal() : bool; // Reads if there is a diagonal 4-in-row in the board
@@ -59,7 +59,7 @@ class Game implements gameInterface {
         return strcmp((($this->board)->getBoard()[$x][$y])->getColor(), "$color") == 0;
     }
 
-    public function colorCount($x, $y, $red, $blue) : bool {
+    public function colorCount($x, $y, $red, $blue) {
         if($this->colorCompare($x, $y, "🟥") /*R*/) {
             $red++;
             $blue == 0;
@@ -73,6 +73,10 @@ class Game implements gameInterface {
             if($blue == 4)
                 return TRUE;
         }
+        /*                
+        if($this->colorCount($x, $y, $red, $blue)) 
+            return TRUE;
+        */
     }
 
     public function horizontal() : bool {
@@ -82,8 +86,19 @@ class Game implements gameInterface {
         for($y = ($this->board)->getY()-1; $y >= 0; $y--){
             for($x = 0; $x < ($this->board)->getX(); $x++){
                 if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCount($x, $y, $red, $blue))
-                        return TRUE;
+                    if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                        $red++;
+                        $blue == 0;
+                        if($red == 4)
+                            return TRUE;
+                    }
+                
+                    if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                        $blue++;
+                        $red = 0;
+                        if($blue == 4)
+                            return TRUE;
+                    }
                     else {
                         $red = 0;
                         $blue = 0;
@@ -102,8 +117,19 @@ class Game implements gameInterface {
         for($x = 0; $x < ($this->board)->getX(); $x++){
             for($y = ($this->board)->getY()-1; $y >= 0; $y--){
                 if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCount($x, $y, $red, $blue))
-                        return TRUE;
+                    if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                        $red++;
+                        $blue == 0;
+                        if($red == 4)
+                            return TRUE;
+                    }
+                
+                    if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                        $blue++;
+                        $red = 0;
+                        if($blue == 4)
+                            return TRUE;
+                    }
                     else {
                         $red = 0;
                         $blue = 0;
@@ -125,8 +151,19 @@ class Game implements gameInterface {
         for($i = 1; $i > 6; $i++) {
 
             if(($this->board)->isPiece($x,$y)) {
-                if($this->colorCount($x, $y, $red, $blue)) 
-                    return TRUE;
+                if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                    $red++;
+                    $blue == 0;
+                    if($red == 4)
+                        return TRUE;
+                }
+            
+                if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                    $blue++;
+                    $red = 0;
+                    if($blue == 4)
+                        return TRUE;
+                }
                 else {
                     $red = 0;
                     $blue = 0;
