@@ -6,8 +6,8 @@ include 'Board.php';
 
 interface gameInterface {
     public function play(); // Plays the game for 2 players
-    public function colorCompare($x, $y, $color) : bool;// Checks the color of a cell from the board
-    public function colorCount($x, $y, $red, $blue);// Counts the same colour in a line and returns a boolean if there is a 4-in-row
+    public function colorCompare(int $x,int $y, $color) : bool;// Checks the color of a cell from the board
+    public function colorCount(int $x, int $y, int $red, int $blue);// Counts the same colour in a line and returns a boolean if there is a 4-in-row
     public function horizontal() : bool; // Reads if there is a horizonal 4-in-row in the board
     public function vertical() : bool; // Reads if there is a vertical 4-in-row in the board
     public function diagonal() : bool; // Reads if there is a diagonal 4-in-row in the board
@@ -56,18 +56,18 @@ class Game implements gameInterface {
     }
 
     public function colorCompare($x, $y, $color) : bool {
-        return strcmp((($this->board)->getBoard()[$x][$y])->getColor(), "$color") == 0;
+        return strcmp((($this->board)->getBoard()[$x][$y])->getColor(), $color) == 0;
     }
 
-    public function colorCount($x, $y, $red, $blue) {
-        if($this->colorCompare($x, $y, "🟥") /*R*/) {
+    public function colorCount(int $x, int $y, int $red, int $blue) { // Make this usable
+        if($this->colorCompare($x, $y, '🟥') /*R*/) {
             $red++;
             $blue == 0;
             if($red == 4)
                 return TRUE;
         }
     
-        if($this->colorCompare($x, $y, "🟦") /*B*/) {
+        if($this->colorCompare($x, $y, '🟦') /*B*/) {
             $blue++;
             $red = 0;
             if($blue == 4)

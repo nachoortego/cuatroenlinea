@@ -68,7 +68,8 @@ class Board implements boardInterface {
                 $this->board[$x][$y] = "⬜";
                 break;
             }
-        }    }
+        }    
+    }
 
     public function showCell(int $x,int $y){
         if($this->board[$x][$y] == "⬜")
