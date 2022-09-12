@@ -99,11 +99,12 @@ class Game implements gameInterface {
                         if($blue == 4)
                             return TRUE;
                     }
-                    else {
+                }
+                else {
                         $red = 0;
                         $blue = 0;
-                    }
                 }
+                
             }
         }
 
@@ -130,10 +131,10 @@ class Game implements gameInterface {
                         if($blue == 4)
                             return TRUE;
                     }
-                    else {
-                        $red = 0;
-                        $blue = 0;
-                    }
+                }
+                else {
+                    $red = 0;
+                    $blue = 0;
                 }
             }
         }
