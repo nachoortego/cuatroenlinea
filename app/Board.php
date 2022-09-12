@@ -71,20 +71,16 @@ class Board implements boardInterface {
         }    
     }
 
-    public function showCell(int $x,int $y){
-        if($this->board[$x][$y] == "⬜")
-            return $this->board[$x][$y];
-
-        else{
-            return $this->board[$x][$y]->getColor();
-        }
-    }
-
     public function showBoard(){
         print("\n\n");
         for($y = 0; $y < $this->getY(); $y++){
             for($x = 0;$x < $this->getX(); $x++){
-                print($this->showCell($x,$y));
+                if($this->board[$x][$y] == "⬜") {
+                    print($this->board[$x][$y]);
+                }
+                else{
+                    print($this->board[$x][$y]->getColor());
+                }
             }
             print("\n");
         }

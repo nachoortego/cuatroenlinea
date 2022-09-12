@@ -77,6 +77,7 @@ class Game implements gameInterface {
         if($this->colorCount($x, $y, $red, $blue)) 
             return TRUE;
         */
+        return FALSE;
     }
 
     public function horizontal() : bool {
