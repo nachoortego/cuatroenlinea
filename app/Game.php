@@ -62,7 +62,7 @@ class Game implements gameInterface {
     public function colorCount(int $x, int $y, int $red, int $blue) { // Make this usable
         if($this->colorCompare($x, $y, '🟥') /*R*/) {
             $red++;
-            $blue == 0;
+            $blue = 0;
             if($red == 4)
                 return TRUE;
         }
@@ -89,7 +89,7 @@ class Game implements gameInterface {
                 if(($this->board)->isPiece($x,$y)) {
                     if($this->colorCompare($x, $y, "🟥") /*R*/) {
                         $red++;
-                        $blue == 0;
+                        $blue = 0;
                         if($red == 4)
                             return TRUE;
                     }
@@ -105,8 +105,9 @@ class Game implements gameInterface {
                         $red = 0;
                         $blue = 0;
                 }
-                
             }
+            $red = 0;
+            $blue = 0;
         }
 
         return FALSE;
@@ -121,7 +122,7 @@ class Game implements gameInterface {
                 if(($this->board)->isPiece($x,$y)) {
                     if($this->colorCompare($x, $y, "🟥") /*R*/) {
                         $red++;
-                        $blue == 0;
+                        $blue = 0;
                         if($red == 4)
                             return TRUE;
                     }
@@ -138,6 +139,8 @@ class Game implements gameInterface {
                     $blue = 0;
                 }
             }
+            $red = 0;
+            $blue = 0;
         }
         
         return FALSE;    
@@ -146,42 +149,66 @@ class Game implements gameInterface {
     public function diagonal() : bool {
         $red = 0;
         $blue = 0;
-        $y = 3;
-        $x = 3;
 
         // Right diagonals
-        for($i = 1; $i > 6; $i++) {
+        for($initialY = 2, $initialX = 0; $initialX < $this->board->getX();){
+            $initialY > 0 ? $initialY-- : $initialX++;
 
-            if(($this->board)->isPiece($x,$y)) {
-                if($this->colorCompare($x, $y, "🟥") /*R*/) {
-                    $red++;
-                    $blue == 0;
-                    if($red == 4)
-                        return TRUE;
-                }
-            
-                if($this->colorCompare($x, $y, "🟦") /*B*/) {
-                    $blue++;
-                    $red = 0;
-                    if($blue == 4)
-                        return TRUE;
-                }
-                else {
-                    $red = 0;
-                    $blue = 0;
+            for($x = $initialX, $y = $initialY; $y < ($this->board)->getY() && $x < ($this->board)->getX(); $x++, $y++) {
+                if(($this->board)->isPiece($x,$y)) {
+                    if($this->colorCompare($x, $y, "🟥")) {
+                        $red++;
+                        $blue = 0;
+                        if($red == 4)
+                            return TRUE;
+                    }
+                
+                    if($this->colorCompare($x, $y, "🟦")) {
+                        $blue++;
+                        $red = 0;
+                        if($blue == 4)
+                            return TRUE;
+                    }
+                    else {
+                        $red = 0;
+                        $blue = 0;
+                    }
                 }
             }
         }
 
         // Left diagonals
-
+        for($initialY = 3, $initialX = 0; $initialX < $this->board->getX();) {
+            $initialY < ($this->board)->getY() ? $initialY++ : $initialX++;
+            for($x = $initialX, $y = $initialY; $y <= 0 && $x < ($this->board)->getX(); $x++, $y--) {
+                if(($this->board)->isPiece($x,$y)) {
+                    if($this->colorCompare($x, $y, "🟥")) {
+                        $red++;
+                        $blue = 0;
+                        if($red == 4)
+                            return TRUE;
+                    }
+                
+                    if($this->colorCompare($x, $y, "🟦")) {
+                        $blue++;
+                        $red = 0;
+                        if($blue == 4)
+                            return TRUE;
+                    }
+                    else {
+                        $red = 0;
+                        $blue = 0;
+                    }
+                }
+            }
+        }
         return FALSE;
+        
     }
 
-    public function winner(string $player) : bool{
+    public function winner(string $player) : bool {
         if($this->horizontal() || $this->vertical() || $this->diagonal()){
-            $text = "The winner is " . $player;
-            print($text);
+            print("The winner is $player");
             return TRUE;
         }
         else return FALSE;
