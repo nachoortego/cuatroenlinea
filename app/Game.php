@@ -28,8 +28,7 @@ class Game implements gameInterface {
         ($this->board)->showBoard();
         print("The game has started. Write 'remove' anytime to remove a piece.\n\n");
         while (TRUE) {
-            $text = $player . " turn. \n";
-            print($text);
+            print("$player's turn.\n");
             $column = readline("Choose a column to put a new piece: ");
 
             if(strcmp($column, 'remove') == 0) {

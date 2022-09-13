@@ -11,7 +11,7 @@ class Piece implements pieceInterface {
 
     public function __construct($colorInput) {
         if($colorInput != "🟥" && $colorInput != "🟦" )
-            throw new \Exception ("Piece must be red ('🟥') or blue ('🟦')");
+            throw new \Exception ("🚨 Piece must be red ('🟥') or blue ('🟦')🚨");
 
         $this->color = $colorInput;
     }

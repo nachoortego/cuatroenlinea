@@ -10,8 +10,8 @@ interface boardInterface {
     public function cleanBoard(); // Cleans the board
     public function isPiece(int $x, int $y) : bool; // Returns if the cell is occupied
     public function getPiece(int $x, int $y) : Piece; // Returns piece object
-    public function putPiece(int $x, Piece $piece); // Puts new piece in board
-    public function removePiece(int $x); // Removes a piece
+    public function putPiece($x, Piece $piece); // Puts new piece in board
+    public function removePiece($x); // Removes a piece
 }
 
 class Board implements boardInterface {
@@ -51,7 +51,9 @@ class Board implements boardInterface {
         return $this->board[$x][$y];
     }
 
-    public function putPiece(int $x, Piece $piece){
+    public function putPiece($x, Piece $piece){
+        if(!is_numeric($x) || $x < 1 || $x > 7)
+            throw new \Exception ("🚨 Position must be a number from 1 to 7");
         $x--;
         for($y = $this->getY()-1; $y >= 0; $y--){
             if(!($this->isPiece($x, $y))){
@@ -61,7 +63,9 @@ class Board implements boardInterface {
         }
     }
 
-    public function removePiece(int $x){
+    public function removePiece($x){
+        if(!is_numeric($x) || $x < 1 || $x > 7)
+            throw new \Exception ("🚨 Position must be a number from 1 to 7");
         $x--;
         for($y = 0; $y < $this->getY(); $y++){
             if($this->isPiece($x, $y)){
@@ -88,7 +92,6 @@ class Board implements boardInterface {
     }
 
 }
-
 
 
 ?>
