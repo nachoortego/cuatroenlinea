@@ -9,7 +9,7 @@ interface pieceInterface {
 class Piece implements pieceInterface {
     protected $color;    
 
-    public function __construct($colorInput) {
+    public function __construct($colorInput = "⬜") {
         if($colorInput != "🟥" && $colorInput != "🟦" )
             throw new \Exception ("🚨 Piece must be red ('🟥') or blue ('🟦')🚨");
 
