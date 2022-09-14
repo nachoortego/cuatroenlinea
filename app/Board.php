@@ -36,15 +36,16 @@ class Board implements boardInterface {
     }
     
     public function cleanBoard(){
+        $white = new Piece();
         for($x = 0; $x < $this->getX(); $x++){
             for($y = 0; $y < $this->getY(); $y++){
-                $this->board[$x][$y] = "⬜";
+                $this->board[$x][$y] = $white;
             }
         }
     }
     
     public function isPiece(int $x, int $y) : bool {
-        return $this->board[$x][$y] != "⬜";
+        return ($this->board[$x][$y])->getColor() != "⬜";
     }
 
     public function getPiece(int $x, int $y) : Piece {
@@ -66,25 +67,21 @@ class Board implements boardInterface {
     public function removePiece($x){
         if(!is_numeric($x) || $x < 1 || $x > 7)
             throw new \Exception ("🚨 Position must be a number from 1 to 7");
+        $white = new Piece();
         $x--;
         for($y = 0; $y < $this->getY(); $y++){
             if($this->isPiece($x, $y)){
-                $this->board[$x][$y] = "⬜";
+                $this->board[$x][$y] = $white;
                 break;
             }
-        }    
+        }
     }
 
     public function showBoard(){
         print("\n\n");
         for($y = 0; $y < $this->getY(); $y++){
             for($x = 0;$x < $this->getX(); $x++){
-                if($this->board[$x][$y] == "⬜") {
-                    print($this->board[$x][$y]);
-                }
-                else{
                     print($this->board[$x][$y]->getColor());
-                }
             }
             print("\n");
         }
