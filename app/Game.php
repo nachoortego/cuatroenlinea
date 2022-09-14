@@ -85,24 +85,21 @@ class Game implements gameInterface {
 
         for($y = ($this->board)->getY()-1; $y >= 0; $y--){
             for($x = 0; $x < ($this->board)->getX(); $x++){
-                if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCompare($x, $y, "🟥") /*R*/) {
-                        $red++;
-                        $blue = 0;
-                        if($red == 4)
-                            return TRUE;
-                    }
-                
-                    if($this->colorCompare($x, $y, "🟦") /*B*/) {
-                        $blue++;
-                        $red = 0;
-                        if($blue == 4)
-                            return TRUE;
-                    }
+                if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                    $red++;
+                    $blue = 0;
+                    if($red == 4)
+                        return TRUE;
                 }
-                else {
-                        $red = 0;
-                        $blue = 0;
+                else if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                    $blue++;
+                    $red = 0;
+                    if($blue == 4)
+                        return TRUE;
+                }
+                else /*⬜*/{
+                    $red = 0;
+                    $blue = 0;
                 }
             }
             $red = 0;
@@ -118,22 +115,19 @@ class Game implements gameInterface {
 
         for($x = 0; $x < ($this->board)->getX(); $x++){
             for($y = ($this->board)->getY()-1; $y >= 0; $y--){
-                if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCompare($x, $y, "🟥") /*R*/) {
-                        $red++;
-                        $blue = 0;
-                        if($red == 4)
-                            return TRUE;
-                    }
-                
-                    if($this->colorCompare($x, $y, "🟦") /*B*/) {
-                        $blue++;
-                        $red = 0;
-                        if($blue == 4)
-                            return TRUE;
-                    }
+                if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                    $red++;
+                    $blue = 0;
+                    if($red == 4)
+                        return TRUE;
                 }
-                else {
+                else if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                    $blue++;
+                    $red = 0;
+                    if($blue == 4)
+                        return TRUE;
+                }
+                else /*⬜*/{
                     $red = 0;
                     $blue = 0;
                 }
@@ -154,24 +148,21 @@ class Game implements gameInterface {
             $initialY > 0 ? $initialY-- : $initialX++;
 
             for($x = $initialX, $y = $initialY; $y < ($this->board)->getY() && $x < ($this->board)->getX(); $x++, $y++) {
-                if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCompare($x, $y, "🟥")) {
-                        $red++;
-                        $blue = 0;
-                        if($red == 4)
-                            return TRUE;
-                    }
-                
-                    if($this->colorCompare($x, $y, "🟦")) {
-                        $blue++;
-                        $red = 0;
-                        if($blue == 4)
-                            return TRUE;
-                    }
-                    else {
-                        $red = 0;
-                        $blue = 0;
-                    }
+                if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                    $red++;
+                    $blue = 0;
+                    if($red == 4)
+                        return TRUE;
+                }
+                else if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                    $blue++;
+                    $red = 0;
+                    if($blue == 4)
+                        return TRUE;
+                }
+                else /*⬜*/{
+                    $red = 0;
+                    $blue = 0;
                 }
             }
         }
@@ -180,24 +171,21 @@ class Game implements gameInterface {
         for($initialY = 3, $initialX = 0; $initialX < $this->board->getX();) {
             $initialY < ($this->board)->getY() ? $initialY++ : $initialX++;
             for($x = $initialX, $y = $initialY; $y <= 0 && $x < ($this->board)->getX(); $x++, $y--) {
-                if(($this->board)->isPiece($x,$y)) {
-                    if($this->colorCompare($x, $y, "🟥")) {
-                        $red++;
-                        $blue = 0;
-                        if($red == 4)
-                            return TRUE;
-                    }
-                
-                    if($this->colorCompare($x, $y, "🟦")) {
-                        $blue++;
-                        $red = 0;
-                        if($blue == 4)
-                            return TRUE;
-                    }
-                    else {
-                        $red = 0;
-                        $blue = 0;
-                    }
+                if($this->colorCompare($x, $y, "🟥") /*R*/) {
+                    $red++;
+                    $blue = 0;
+                    if($red == 4)
+                        return TRUE;
+                }
+                else if($this->colorCompare($x, $y, "🟦") /*B*/) {
+                    $blue++;
+                    $red = 0;
+                    if($blue == 4)
+                        return TRUE;
+                }
+                else /*⬜*/{
+                    $red = 0;
+                    $blue = 0;
                 }
             }
         }
